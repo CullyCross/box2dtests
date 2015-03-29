@@ -10,6 +10,10 @@ import com.box2d.game.utils.Constants;
 public class RunnerUserData extends UserData {
 
     private Vector2 mJumpingLinearImpulse;
+    private final Vector2 mRunningPosition =
+            new Vector2(Constants.RUNNER_X, Constants.RUNNER_Y);
+    private final Vector2 mDodgePosition =
+            new Vector2(Constants.RUNNER_DODGE_X, Constants.RUNNER_DODGE_Y);
 
     public RunnerUserData() {
 
@@ -24,5 +28,18 @@ public class RunnerUserData extends UserData {
 
     public void setJumpingLinearImpulse(Vector2 jumpingLinearImpulse) {
         mJumpingLinearImpulse = jumpingLinearImpulse;
+    }
+
+    public float getDodgeAngle() {
+        // In radians
+        return (float) (-90f * (Math.PI / 180f));
+    }
+
+    public Vector2 getRunningPosition() {
+        return mRunningPosition;
+    }
+
+    public Vector2 getDodgePosition() {
+        return mDodgePosition;
     }
 }
